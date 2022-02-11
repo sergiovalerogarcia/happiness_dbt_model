@@ -16,7 +16,7 @@ model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
 seed-paths: ["seeds"]
-macro-paths: ["macros"]
+macro-paths: ["macros", "tests_macros"]
 snapshot-paths: ["snapshots"]
 
 target-path: "target"  # directory which will store compiled SQL files
@@ -34,17 +34,32 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   happiness:
     +materialized: "{{ env_var('DBT_MATERIALIZATION', 'ephemeral') }}"
-    +schema: meat_consumption_happiness
+    +schema: happiness
 
 tests:
   happiness:
-    +schema: meat_consumption_happiness_test
+    +schema: happiness_tests
     integration_tests:
       +tags:
         - integration_tests
     unit_tests:
       +tags:
         - unit_tests
+
+seeds:
+  happiness:
+    raw_examples:
+      +schema: happiness_tests
+      world_happiness_dataset_example_2015:
+        +alias: "{{ var('unique_identifier', '') ~ 'world_happiness_dataset_example_2015' }}"
+      world_happiness_dataset_example_2016:
+        +alias: "{{ var('unique_identifier', '') ~ 'world_happiness_dataset_example_2016' }}"
+      world_happiness_dataset_example_2017:
+        +alias: "{{ var('unique_identifier', '') ~ 'world_happiness_dataset_example_2017' }}"
+      world_happiness_dataset_example_2018_2019:
+        +alias: "{{ var('unique_identifier', '') ~ 'world_happiness_dataset_example_2018_2019' }}"
+      world_happiness_dataset_example_2020_2021:
+        +alias: "{{ var('unique_identifier', '') ~ 'world_happiness_dataset_example_2020_2021' }}"
 
 vars:
   integration_tests: 'false'
