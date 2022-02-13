@@ -3,6 +3,7 @@
         default_columns_and_types=[
             { 'column': 'year',                         'type': 'int' },
             { 'column': 'country_name',                 'type': 'varchar' },
+            { 'column': 'country_name_sk',              'type': 'varchar' },
             { 'column': 'score',                        'type': 'float' },
             { 'column': 'gdp_per_capita',               'type': 'float' },
             { 'column': 'social_support',               'type': 'float' },
