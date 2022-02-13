@@ -10,11 +10,12 @@ with
     '"Country"','"Alpha-3 code"',
 ] %}
 {% set list_values = [
-    ["Afghanistan", ' "AFG"',],
-    ["Albania", ' "ALB"',],
-    ["Algeria",' "DZA"',],
+    ['Afghanistan', ' "AFG"',],
+    ['Albania', ' "ALB"',],
+    ['Algeria', ' "DZA"',],
+    ['Libyan Arab Jamahiriya', ' "LBY"',],
+    ['Libya', ' "LBY"',],
 ] %}
-
 
 create_countries_codes_and_coordinates_dataset as (
     {{ create_countries_codes_and_coordinates_dataset(
@@ -24,9 +25,15 @@ create_countries_codes_and_coordinates_dataset as (
 ),
 
 -- when
+countries_no_duplicates as (
+    {{ countries_no_duplicates(
+        table_ref='create_countries_codes_and_coordinates_dataset',
+    ) }}
+),
+
 countries_dim as (
     {{ countries_dim(
-        table_ref='create_countries_codes_and_coordinates_dataset',
+        table_ref='countries_no_duplicates',
     ) }}
 ),
 

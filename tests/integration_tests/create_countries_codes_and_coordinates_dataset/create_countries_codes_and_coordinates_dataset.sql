@@ -12,7 +12,9 @@ with
 {% set list_values = [
     ['Afghanistan', ' "AFG"',],
     ['Albania', ' "ALB"',],
-    ['Algeria',' "DZA"',],
+    ['Algeria', ' "DZA"',],
+    ['Libyan Arab Jamahiriya', ' "LBY"',],
+    ['Libya', ' "LBY"',],
 ] %}
 
 -- when
