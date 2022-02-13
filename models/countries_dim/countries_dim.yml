@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: countries_dim
+    columns:
+      - name: country_name_sk
+        tests:
+          - unique
+          - not_null
+      - name: country_code_3_sk
+        tests:
+          - unique
+          - not_null
