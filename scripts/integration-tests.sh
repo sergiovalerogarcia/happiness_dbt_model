@@ -10,7 +10,7 @@ echo "============
 Run seeds...
 ============"
 
-dbt seed -s seeds/raw_examples/ --vars "{'integration_tests':'true','unique_identifier':'$(cat logs/unique_identifier_it)'}"
+dbt seed -s happiness.raw_examples --vars "{'integration_tests':'true','unique_identifier':'$(cat logs/unique_identifier_it)'}"
 
 echo "============
 Run models...
@@ -49,5 +49,5 @@ Run models incremental...
 echo "============
 Run test incremental...
 ============"
-dbt test -s tests/integration_tests/happiness_facts/itest_happiness_facts_incremental.sql \
+dbt test -s happiness.integration_tests.happiness_facts.itest_happiness_facts_incremental \
     --vars "{'integration_tests':'true','unique_identifier':'$(cat logs/unique_identifier_it)','incremental_tests':'true'}"

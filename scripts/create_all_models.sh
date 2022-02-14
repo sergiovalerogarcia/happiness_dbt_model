@@ -5,7 +5,7 @@ IFS=$'\n\t'
 echo "============
 Seeds and copy...
 ============"
-./scripts/copy_tables_using_seeds_schemas.sh
+./scripts/copy_tables_using_seeds_schemas.sh "~/workspace/data/dbt/dbt_testing/happiness/discovery/data/world_happiness_dataset"
 
 echo "============
 Run models...

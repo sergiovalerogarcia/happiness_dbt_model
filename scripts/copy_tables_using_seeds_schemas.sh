@@ -2,8 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+DATA_PATH="$1"
 CONNECTION=postgresql://$USER:$PASSWORD@$HOST:$PORT/$DBNAME
-DATA_PATH="~/workspace/data/dbt/dbt_testing/happiness/discovery/data/world_happiness_dataset"
 
 copy_table_using_seed_schema() {
     TABLE=$1

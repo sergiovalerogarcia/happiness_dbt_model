@@ -11,10 +11,10 @@ EXTRA_VARS=$5
 echo "============
 Run run...
 ============"
-dbt run -s models/happiness_facts \
+dbt run -s happiness.happiness_facts.happiness_facts \
     --vars "{'world_happiness_dataset':'$WORLD_HAPPINESS_DATASET','year_like':'$YEAR_LIKE','year':'$YEAR','table_exists':'$TABLE_EXISTS',$EXTRA_VARS}"
 
 echo "============
 Run test...
 ============"
-dbt test -s models/happiness_facts --exclude tag:integration_tests --vars "{$EXTRA_VARS}"
+dbt test -s happiness.happiness_facts.happiness_facts --exclude tag:integration_tests --vars "{$EXTRA_VARS}"
