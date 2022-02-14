@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: happiness_facts
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - country_name_sk
+            - year
+    columns:
+      - name: country_name_sk
+        tests:
+          - not_null
+      - name: year
+        tests:
+          - not_null
