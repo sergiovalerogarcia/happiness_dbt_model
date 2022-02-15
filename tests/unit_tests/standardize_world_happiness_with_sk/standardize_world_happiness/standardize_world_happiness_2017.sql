@@ -25,7 +25,7 @@ world_happiness_dataset as (
 
 -- when
 standardize_dataset as (
-    {{ standardize_world_happiness_dataset(
+    {{ standardize_world_happiness(
         year_like='2017',
         year=2017,
         table_ref='world_happiness_dataset',

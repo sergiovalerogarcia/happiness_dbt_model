@@ -8,8 +8,8 @@ with
     ),
 {% endif %}
 
-standardize_dataset_with_sk as (
-    {{ standardize_dataset_with_sk(
+standardize_world_happiness_with_sk as (
+    {{ standardize_world_happiness_with_sk(
         year_like=var('year_like','2020_2021'),
         year=var('year', '2020'),
         table_ref=table_ref,
@@ -17,4 +17,4 @@ standardize_dataset_with_sk as (
 )
 
 select *
-from standardize_dataset_with_sk
+from standardize_world_happiness_with_sk

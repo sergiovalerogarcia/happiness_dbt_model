@@ -25,8 +25,8 @@ world_happiness_dataset as (
 ),
 
 -- when
-standardize_dataset_with_sk as (
-    {{ standardize_dataset_with_sk(
+standardize_world_happiness_with_sk as (
+    {{ standardize_world_happiness_with_sk(
         year_like='2020_2021',
         year=2020,
         table_ref='world_happiness_dataset',
@@ -34,7 +34,7 @@ standardize_dataset_with_sk as (
 ),
 
 happiness_facts as (
-    {{ happiness_facts(table_ref='standardize_dataset_with_sk',) }}
+    {{ happiness_facts(table_ref='standardize_world_happiness_with_sk',) }}
 ),
 
 -- then

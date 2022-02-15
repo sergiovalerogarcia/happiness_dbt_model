@@ -9,4 +9,4 @@
     )
 }}
 
-{{ happiness_facts(ref('standardize_dataset_with_sk')) }}
+{{ happiness_facts(ref('standardize_world_happiness_with_sk')) }}
