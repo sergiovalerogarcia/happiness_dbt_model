@@ -27,7 +27,7 @@ happiness_facts as (
 ] %}
 
 expected as (
-    {{ create_standardized_happiness_dataset(
+    {{ create_happiness_facts_dataset(
         columns=columns,
         list_values=list_values,
     ) }}
