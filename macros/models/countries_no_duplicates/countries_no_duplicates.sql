@@ -11,8 +11,7 @@
 
     select
         max(country_name) as country_name,
-        country_code_3,
-        count(*)
+        country_code_3
     from rename_columns_and_trim
     group by
         country_code_3
