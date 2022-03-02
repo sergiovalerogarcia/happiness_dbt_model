@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 DATA_PATH="$1"
-CONNECTION=postgresql://$USER:$PASSWORD@$HOST:$PORT/$DBNAME
+CONNECTION="postgresql://$DBT_USER:$DBT_PASSWORD@$DBT_HOST:$DBT_PORT/$DBT_DBNAME"
 
 copy_table_using_seed_schema() {
     TABLE=$1
